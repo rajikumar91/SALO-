@@ -10,12 +10,6 @@ pipeline {
         string(name: 'ECR_REPO_NAME', defaultValue: 'amazon-prime', description: 'Enter repository name')
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/rajikumar91/SALO-.git'
-            }
-        }
 
         stage('Build') {
             steps {
