@@ -10,7 +10,7 @@ pipeline {
         string(name: 'ECR_REPO_NAME', defaultValue: 'amazon-prime', description: 'Enter repository name')
     }
 
-
+    stages {
         stage('Build') {
             steps {
                 sh 'mvn clean package'
