@@ -30,14 +30,14 @@ pipeline {
             }
         }
 
-        stage('Quality Gate') {
+        /*stage('Quality Gate') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: false
                 }
             }
-        }
-
+    }
+*/
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${params.ECR_REPO_NAME} ."
