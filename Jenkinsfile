@@ -6,6 +6,10 @@ pipeline {
         maven 'Maven3'
     }
 
+    parameters {
+        string(name: 'ECR_REPO_NAME', defaultValue: 'amazon-prime', description: 'Enter repository name')
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -37,6 +41,12 @@ pipeline {
                 timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: false
                 }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t ${params.ECR_REPO_NAME} ."
             }
         }
     }
