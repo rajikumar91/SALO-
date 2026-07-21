@@ -21,7 +21,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('Sonarqube') {
+                withSonarQubeEnv('sonarqube') {
                     sh 'mvn sonar:sonar -Dsonar.projectKey=SALO -Dsonar.projectName="SALO Project" -Dsonar.login=$SONAR_AUTH_TOKEN'
                 }
             }
