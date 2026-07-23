@@ -1,4 +1,4 @@
-def call(string location)
+def call(String location)
 {
   sh " echo entter the ${location}."
 }
