@@ -1,5 +1,5 @@
-def call(String location)
+def call(String loc)
 {
-  sh " echo entter the ${location}."
+  sh " echo entter the ${loc}."
 }
 
